@@ -3,19 +3,9 @@ import * as cookieParser from 'cookie-parser'
 import * as bodyParser from 'body-parser'
 import * as cors from 'cors'
 
-//I'll be using a simple JSON-based database for CRUD demonstration purposes
-const lowdb = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('db.json')
-const db = lowdb(adapter)
-
-// Set some defaults
-db.defaults({ posts: [], user: {}, count: 0 })
-  .write()
-
 import mainRoutes from './routes'
 
-const PORT = 8080
+const PORT = 3000
 
 const app = express()
 

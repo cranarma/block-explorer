@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/server",
+        "outDir": "./dist/",
         "sourceMap": true,
         "strict": true,
         "module": "es2015",
@@ -9,6 +9,6 @@
         // "experimentalDecorators": true
     },
     "include": [
-        "./src/server/*"
+        "./src/*"
     ]
 }

@@ -189,6 +189,9 @@ body {}
 .logo-area{
 	padding:14px 0px;
 }
+.logo-area h1{
+    color:#FFFFFF;
+}
 .nav.navbar-nav.notika-top-nav{
 	float: right;
 }

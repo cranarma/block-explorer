@@ -6,9 +6,10 @@
   "main": "index.js",
   "scripts": {
     "build-app": "webpack",
+    "dev-app": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-server": "tsc --project src/server/tsconfig.json",
-    "builds-server:watch": "tsc --watch --project src/server/tsconfig.json",
+    "build-server:watch": "tsc --watch --project src/server/tsconfig.json",
     "start-server": "node dist/server/index.js",
     "dev-server": "nodemon dist/server/index.js --watch dist"
   },
@@ -27,7 +28,8 @@
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.1",
     "express": "^4.14.1",
-    "lowdb": "1.0.0"
+    "pg": "7.11.0",
+    "express-validator": "6.1.1"
   },
   "devDependencies": {
     "css-loader": "^0.28.1",
@@ -41,6 +43,7 @@
     "@types/cors": "^2.8.0",
     "@types/express": "^4.0.36",
     "@types/node": "^8.0.0",
+    "@types/pg": "7.4.14",
     "nodemon": "^1.11.0",
     "tslint": "^5.4.3"
   }
