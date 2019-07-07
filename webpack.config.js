@@ -4,11 +4,10 @@ var webpack = require('webpack')
 
 module.exports = {
   entry: {
-    app: './src/index.ts',
-    // server: './src/server/index.ts'
+    app: './src/app.ts',
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.join(__dirname, 'dist', 'app', 'js'),
     publicPath: '/dist/',
     filename: '[name].js'
   },
@@ -42,7 +41,14 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ]
+      },
     ]
   },
   resolve: {

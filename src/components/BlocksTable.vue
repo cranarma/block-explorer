@@ -1,41 +1,68 @@
 <!-- src/components/Hello.vue -->
 <template>
-    <div class="container">
+    <div class="blocks-table container">
         <div v-if="loading" class="loading">Loading...</div>
         <div v-if="error" class="error">
             {{ error }}
         </div>
-        <table v-if="posts" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Address</th>
-                    <th>Public key</th>
-                    <th>Voting power</th>
-                    <th>Proposer priority</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="post in posts" v-bind:key="post.id">
-                    <td class="f-500 c-cyan">{{post.pub_key.value}}</td>
-                    <td>{{post.voting_power}}</td>
-                    <td class="f-500 c-cyan">{{post.proposer_priority}}</td>
-                    <td>{{post.address}}</td>
-                </tr>
-            </tbody>
-        </table>
+        <vue-good-table v-if="rows"
+            :columns="columns"
+            :rows="rows"
+            styleClass="vgt-table striped bordered"
+            :sort-options="{
+                enabled: true,
+                initialSortBy: {field: 'validatorAddress', type: 'desc'}
+            }"/>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+//@ts-ignore
+import { VueGoodTable } from 'vue-good-table'
+
+interface ApiRecord{
+    address: string
+    pub_key: {
+        type: string
+        value: string
+    },
+    voting_power: number
+    proposer_priority: number
+}
+
+interface NormalizedRecord{
+    validatorAddress: string
+    publicKey: string
+    votingPower: number
+    proposerPriority: number
+}
 
 export default Vue.extend({
     props: ['name', 'initialEnthusiasm'],
     data() {
         return {
+            columns: [
+                {
+                    label: 'Address',
+                    field: 'validatorAddress'
+                },
+                {
+                    label: 'Public Key',
+                    field: 'publicKey'
+                },
+                {
+                    label: 'Voting Power',
+                    field: 'votingPower'
+                },
+                {
+                    label: 'Proposer Priority',
+                    field: 'proposerPriority'
+                }
+            ],
             enthusiasm: this.initialEnthusiasm,
             loading: false,
-            posts: null,
+            rows: [] as NormalizedRecord[] | null,
             error: null,
         }
     },
@@ -49,8 +76,18 @@ export default Vue.extend({
         '$route': 'fetchData'
     },
     methods: {
+        normalizeData(data: ApiRecord[]): NormalizedRecord[]{
+            return data.map(record => {
+                return {
+                    validatorAddress: record.address,
+                    publicKey: record.pub_key.value,
+                    votingPower: record.voting_power,
+                    proposerPriority: record.proposer_priority
+                }
+            })
+        },
         fetchData () {
-            this.error = this.posts = null
+            this.error = this.rows = null
             this.loading = true
             fetch('http://localhost:3000/api/v1/validators/')
             .then(response => {
@@ -58,7 +95,7 @@ export default Vue.extend({
             })
             .then(data => {
                 this.loading = false
-                this.posts = data
+                this.rows = this.normalizeData(data)
                 console.log(`data`, data)
             })
             .catch(error => {
@@ -71,7 +108,13 @@ export default Vue.extend({
 </script>
 
 <style>
-.greeting {
-    font-size: 20px;
+
+.blocks-table thead th{
+    cursor:pointer;
+}
+
+.blocks-table tbody tr:hover{
+    cursor:pointer;
+    background-color:#dcdcdc !important;
 }
 </style>
