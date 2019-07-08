@@ -8,13 +8,17 @@ NodeJS version: 10.15.1
 NPM version: 6.4.1
 
 App tasks:
-  `npm run build-app`
+  `npm run serve`
+
+  `npm run build`
+
+  `npm run lint`
 
 Server tasks:
-  `npm run build-server`
+  `npm run build`
 
-  `npm run build-server:watch`
+  `npm run build:watch`
 
-  `npm run start-server`
+  `npm run start`
   
-  `npm run dev-server`
+  `npm run dev`
