@@ -1,17 +1,15 @@
 {
-  "name": "block-explorer",
+  "name": "block-explorer-server",
   "version": "1.0.0",
   "private": true,
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-app": "webpack",
-    "dev-app": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-server": "tsc --project src/server/tsconfig.json",
-    "build-server:watch": "tsc --watch --project src/server/tsconfig.json",
-    "start-server": "node dist/server/index.js",
-    "dev-server": "nodemon dist/server/index.js --watch dist"
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "start": "node dist/index.js",
+    "dev": "nodemon dist/index.js --watch dist"
   },
   "keywords": [],
   "author": {
@@ -25,20 +23,10 @@
     "cors": "^2.8.1",
     "express": "^4.14.1",
     "express-validator": "6.1.1",
-    "pg": "7.11.0",
-    "vue": "^2.5.2",
-    "vue-class-component": "^6.0.0",
-    "vue-good-table": "^2.17.1",
-    "vue-property-decorator": "^6.0.0",
-    "vue-router": "^3.0.1",
-    "vue-runtime-helpers": "1.0.1"
+    "pg": "7.11.0"
   },
   "devDependencies": {
-    "css-loader": "^0.28.1",
-    "ts-loader": "^2.0.3",
     "typescript": "^2.7.2",
-    "vue-loader": "^12.0.3",
-    "vue-template-compiler": "^2.5.2",
     "webpack": "^2.5.0",
     "@types/body-parser": "^1.16.3",
     "@types/cookie-parser": "^1.3.30",

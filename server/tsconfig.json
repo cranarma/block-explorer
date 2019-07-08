@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "../../dist/server",
+        "outDir": "./dist",
         "sourceMap": true,
         "strict": true,
         "module": "commonjs",
@@ -8,6 +8,6 @@
         // "experimentalDecorators": true
     },
     "include": [
-        "./*"
+        "./src/index.ts"
     ]
 }

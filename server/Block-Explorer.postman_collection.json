@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "cc235eac-8255-4055-ad23-f0562a80d09b",
+		"name": "Block-Explorer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/v1/validators/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/validators/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"validators",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/v1/validators/C4BB2DA41B404044099DFBCD1F2537925D069EDC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/validators/00B587BAA478C3FCD0A1AE34658764BCE01A2A41",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"validators",
+						"00B587BAA478C3FCD0A1AE34658764BCE01A2A41"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/v1/validators/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"validatorAddress\": \"00B587BAA478C3FCD0A1AE34658764BCE01A2A41\",\n    \"publicKey\": \"tjiLc0c2cbcDFjz/aW1j+r39sNsDwMLP1aO6UQhXvuk=\",\n    \"votingPower\": \"20093353140000000\",\n\t\"proposerPriority\": \"-84641969415727852\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/validators/?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"validators",
+						""
+					],
+					"query": [
+						{
+							"key": "validatorAddress",
+							"value": "C4BB2DA41B404044099DFBCD1F2537925D069EDA",
+							"disabled": true
+						},
+						{
+							"key": "publicKey",
+							"value": "fSUZhwy4iYKi4MTnlqIvqRcjiYI+sQrbTcVnUMSnM9E=",
+							"disabled": true
+						},
+						{
+							"key": "votingPower",
+							"value": "20130005100000000",
+							"disabled": true
+						},
+						{
+							"key": "proposerPriority",
+							"value": "25940439839448884",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

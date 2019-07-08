@@ -1,6 +1,5 @@
 import * as express from 'express';
 import model from '../api/model'
-import { check }  from 'express-validator'
 import addValidator from '../api/expressValidators/addValidator'
 
 export const routesPrefix = '/api/v1'
